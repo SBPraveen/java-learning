@@ -1,3 +1,5 @@
+[Java Tutorial for Beginners 2023](https://www.youtube.com/watch?v=BGTx91t8q50&ab_channel=Telusko)  
+
 # Les1 
 Java is platform independent(WORA) because of **JVM** which is inside **JRE**.Java uses camelCases.    
 JVM(Java Virtual Machine) understands only **byte code**. So **javac** is needed to compile the java code(extension => .java) to byte code(extension => .class).  
@@ -125,12 +127,28 @@ In the above example if name = name is used instead of this.name = name then the
 # Les 7 - this method, super method, inheritance
 super class - parent class  
 sub class - child class  
-
+Check the code example file.  
+Calculator => AdvancedCalculator - **Single level inheritance**  
+Calculator => AdvancedCalculator => VeryAdvancedCalculator - **Multi level inheritance**  
+In java **multiple inheritance doesn't work**. In multiple inheritance one child class inherits from two parent class.  
 Every constructor has a super method in it even if we dont mention it(build in).  
 The super method is used to call the constructor of the parent class(Inheritance).
 If no arguments are passed then the parent(super) class's default constructor will be called if arguments are passed then the parameteriqed constructor will be called.  
 **Every class** in java **extends the Object class** by default. 
 The this method calls the default constructor of the same class. 
+
+# Les 8 - Method overriding, packages
+In method overriding the child class methods overwrites the parent class method.  
+A group of files can be stored in a package. Keywork is "package". 
+1. Create a folder
+2. All the files in that folder should have  "package <folderName>;"
+3. Import the file using the import keyword
+   1. Eg:1 => import Les8Package.Pkg2;
+   2. Eg:2 => import Les8Package.*; => import all the files(**not folder**) present in the "Les8Package" package.   
+By default java.lang package will be imported in all files and System.out.println belongs to that package.  
+Note: If we are going to create a package that is going to be used by others then the package name should be unique. Most of the companies make the package unique by having their domain name as the package name Eg => com.google.calculation  
+
+
 
 
 
