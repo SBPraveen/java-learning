@@ -1,6 +1,6 @@
 [Java Tutorial for Beginners 2023](https://www.youtube.com/watch?v=BGTx91t8q50&ab_channel=Telusko)  
 
-# Les1 
+# Les1 - type casting, operators, conditional statements, ternary operators, loops
 Java is platform independent(WORA) because of **JVM** which is inside **JRE**.Java uses camelCases.    
 JVM(Java Virtual Machine) understands only **byte code**. So **javac** is needed to compile the java code(extension => .java) to byte code(extension => .class).  
 JVM will **start executing** from the **main method** present in the file which we have specified => public static void main(String a[])  
@@ -149,7 +149,56 @@ By default java.lang package will be imported in all files and System.out.printl
 Note: If we are going to create a package that is going to be used by others then the package name should be unique. Most of the companies make the package unique by having their domain name as the package name Eg => com.google.calculation  
 
 
+# Les 9 - Access Modifiers, Polymorphism, Dynamic method dispatch, upcasting and downcasting
+- public 
+- private 
+- protected  
+  
+![Java](./images/Les9.png)
+  
+Classes and methods should be public and variables should be private.  Try not using default.  
 
+Polymorphism
+- Compile time polymorphism => Method overloading
+- Run time polymorphism => Method overriding, Dynamic method dispatch
+  
+Dynamic method dispatch - type will be parent but the object will be child. This works only for **overridden methods**.  
+  
+- **Final variable** => Similar to const keyword in JS.  
+- **Final class** => Final classes cannot be inherited. 
+- **Final method** => Final methods cannot be overridden.
+
+
+# Les 10 - Abstract class and methods, Inner class, Anonymous Inner class
+- Abstract methods are just declared and not defined inside the abstract classes. The child class which inherits the abstract class **should** define the abstract method. 
+- If the child class is not able to define all the abstract methods then it should also be a abstract class. 
+- Abstract methods should be present inside the abstract class.
+- Objects cannot be created from abstract classes
+- An abstract class may or may not have abstract methods.
+  
+**Anonymous Inner class**
+Instead of creating a child class which extends the parent class just for the purpose of overriding we can use Anonymous Inner classes.
+
+# Les 11 - Interfaces
+- Interfaces are blueprints to classes and are not classes. These are very similar to abstract classes. We use interfaces when all the methods inside the abstract classes are abstract methods.
+- By default all the methods inside the interfaces are **public abstract**
+- Instead of extends keyword we use **implements** keyword
+- By default all the variables inside the interfaces are final and static.
+- A class can implement multiple interfaces. But a class can extend only one abstract class.
+- An interface can **extend** (not implements) another interface. 
+  - Class - Class => extends
+  - Class - Interface => implements
+  - Interface - Interface => extends
+- Types of interfaces:
+  - Normal Interface - Interface with **2 or more methods**
+  - Functional Interface/SAM(Single Abstract Method) -  Interface with **only one method**
+  - Marker Interface - Interface with **no methods**. This is used for serialization(storing and  data from heap memory to Harddisk/DB) and deserialization(vice versa)   
+
+# Les 12 - Enums, Annotations
+- An **enum** is a special "class" that represents a group of constants.  
+- **Java Annotation** is a tag that represents the metadata i.e. attached with class, interface, methods or fields to indicate some additional information which can be used by java compiler and JVM. Annotations will not affect the code in anyways.
+  - The ```@Override```  is used when we have a method in the child class which is overriding the parent class method. By mistake if the parent/child class's method name changes then @Override will throw a compile time error. Check Les8 for example.  
+  - ```@FunctionalInterface```  FunctionalInterface allows only one function inside the interface. Lambda functions are based on the functional interfaces.
 
 
 
