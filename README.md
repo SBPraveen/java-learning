@@ -103,8 +103,8 @@ String buffer is thread safe whereas string builder is not thread safe.
 Constructor functions should have the same name as the class name and they never return anything. Constructor functions can be used for activities such as connection to DB.  
 Just like method overloading, constructors can also be overloaded and a constructor with parameters is known as a parameterized constructor.  
 **Constructor function**(inside a class) will be called **every time an object is created**. **Static blocks** will be **called only once** irrespective of the number of times objects are created from that class. The static blocks will be called even before the constructor. If no objects are created then then static block will not be called but we can initiate a class using the ``` Class.forName("Mobile")```(If a class is initiated then the static block will get executed)  
-Just like static variables, static methods should be called using the class name.  
-**A non static variable cannot be used inside a static metnod.**But the object itself can be passed to the static method and the non static variables can be accessed from the object.  
+Just like static variables, **static methods** should be called using the class name.  
+**A non static variable cannot be used inside a static method.**But the object itself can be passed to the static method and the non static variables can be accessed from the object.  
 
 Why main method is static??  
 Main function is the starting point of execution. But we cannot create an object of the class before main is executed. So we make main as static.  
@@ -200,5 +200,65 @@ Instead of creating a child class which extends the parent class just for the pu
   - The ```@Override```  is used when we have a method in the child class which is overriding the parent class method. By mistake if the parent/child class's method name changes then @Override will throw a compile time error. Check Les8 for example.  
   - ```@FunctionalInterface```  FunctionalInterface allows only one function inside the interface. Lambda functions are based on the functional interfaces.
 
+# Les 13 Exceptions, throws, throw
+- Compile time error => Eg instead of ```System.out.println``` if we type ```System.out.print``` this will throw error during the compile time.
+- Runtime error => Exceptions. Eg dividing a no by zero. 
+- Logical error => Bugs   
+In java we can have **multiple catch blocks**.  
+Eg:
+```java
+try {} 
+catch (ArithmeticException e) {}
+catch(ArrayIndexOutOfBoundsException e){}
+catch(Exception e){}
+``` 
+```Exception``` is the parent class for all exceptions so it has to be at the last.  
+**throws** allows the method in the child class to throw error which is handled in the parent class.  
+**e.printStackTrace()** prints the entire stack trace. 
+```
+ArithmeticException catch block java.lang.ArithmeticException: / by zero
+java.lang.ArithmeticException: / by zero
+	at Divide.calculate(Les13.java:10)
+	at Les13.main(Les13.java:33)
+``` 
+If e is logged instead of e.printStackTrace() the op will be as follows
+```
+ArithmeticException catch block java.lang.ArithmeticException: / by zero
+```
+**finally** block gets executed irrespective of whether an exception is thrown or not. This is generally used for closing resources.   
+**try with resources** - automatically closes the resources. Check Les14.
 
+# Les 14 - Inputs
 
+- ```System.in.read``` reads the input and returns an ASCII value.
+- ```BufferedReader``` this method is very verbose
+-  ```Scanner sc = new Scanner(System.in)``` - Scanner requires input stream so we have to pass System.in
+
+# Les 15 - Multithreading
+- Threads can be created by extending the Thread class or by using the Runnable interface.
+- The classes should extend the ```Thread``` class.
+- A class which extends the Thread method should have a ```run``` method.
+- The ```start``` method is used for  start executing the thread.
+- In the example shown in Les15.java, first a group of "Class A" gets printed then a group of "Class B" gets printed then a group of "Class A" gets printed.....
+- If our lap has 4 cores only 4 threads will get executed. So if 1000 threads are created then the Scheduler(from the CPU) schedules some time for each thread.
+- ```claA.getPriority()``` gets the priority of the thread.
+- ```setPriority``` is just used to suggest the priority of the thread to the scheduler. The Scheduler may or may not consider it. 
+- Thread.MAX_PRIORITY => 10 
+- Thread.MIN_PRIORITY => 1
+- Thread.sleep(10) => sleep(milliseconds). similar to setTimeout. 
+- **Thread safe** - If two threads tries to modify the same variable then it will lead to code instability. So we have to make the code thread safe. Eg the counter class in Les15 gives different result everytime we run the code. This is avoided by using the ```join``` method and the synchronized keyword.
+  
+**Thread states**
+![Java](./images/threadStates.png)
+
+# Les 16 Collections
+- Collection API
+- Collection (interface) - this belongs to the java.util package
+- Collections (class)
+- Collection API allows us to create data structures such as List(ArrayList), Queue(DeQueue), Set(HashSet), Map(key value pair)
+- For sorting array we can use the **Collections.sort** or we can implement the **Comparable** interface
+
+# Les 17 Streams, forEach
+
+- Streams can be used just once. Streams provide lot of in build methods(Eg map, filter, reduce ).
+- Making changes to streams doesnt affect the original array.
