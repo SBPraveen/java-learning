@@ -11,7 +11,7 @@ JRE => Java Runtime Environment. JRE = JVM + other libraries
 1. integer => byte(1 bytes) short(2 bytes) int(4 bytes) long(8 bytes)
 2. float =>  double, float
 3. character
-4. boolean
+4. boolean  
 By default double will be selected not float. So ```float amount1 = 2.3f;``` f is important else java will throw error.  
 For long numbers use "l" at the last 
 For char use ' and not "
