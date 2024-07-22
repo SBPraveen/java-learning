@@ -31,8 +31,8 @@ In java objects are created using the JVM with the classes as blueprints for obj
 
 JVM takes the byte code and executes. All the libraries that we have used resides in the JRE. Developers have JDK which comprises of JRE + JVM. In client machine we only need JRE + JVM no need JDK
 
-public void func1() => Function that returns nothing
-public String func1() => Function that returns string
+public void func1() => Function that returns nothing  
+public String func1() => Function that returns string  
 
 **method overloading**
 public int add(int no1, int no2)  
